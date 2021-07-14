@@ -1,6 +1,6 @@
 // This function returns true if the input given is a palindrome
 
-function palindrome(str) {
+/* function palindrome(str) {
     // convert input into an array and remove non alpha-numeric characters
     let myFilter = /[a-z0-9]/gmi
     let myString = str.match(myFilter)
@@ -23,20 +23,33 @@ function palindrome(str) {
     if (!myString.join("").match(RegExp(myRegEx.join(""), "gmi"))) {
         return false
     }
-}
+} */
 // for testing purposes, will call the function a number of times
-console.log(palindrome("A man, a plan, a canal. Panama"))
+// console.log(palindrome("A man, a plan, a canal. Panama"))
 
 // The alternative solution to this problem is to use a recursive call back function, it needs to be a callback to preserve some variable information as it recurses.
 
 function palindrom2(str) {
-    // convert input into an array and remove non alpha-numeric characters
+    // Initial set-up, convert input into an array and remove non alpha-numeric characters
     let myFilter = /[a-z0-9]/gmi
     let myString = str.match(myFilter)
+    console.log(myString)
 
-    
+    // recursive callback function
+    function popShift(arr) {
+        if (arr[0].toLowerCase() == arr[arr.length - 1].toLowerCase() && arr.length > 2) { // tolowerCase for more robust matching, 
+            arr.shift()
+            arr.pop()
+            console.log(arr.length, arr[0], arr[arr.length - 1])
+            popShift(arr)
+        }
+        return arr.length <= 2 && arr[0] == arr[1] // test to check if palindrome, will not equal to 1 unless symmetrical, and 2 if even array (corner case), hotfix added for corner case
+    }
+    return popShift(myString)
 }
 
+
+console.log(palindrom2("0_0 (: /-\ :) 0-0"))
 
 /* code planning
 
