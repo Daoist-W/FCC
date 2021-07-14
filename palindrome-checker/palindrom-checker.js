@@ -27,7 +27,15 @@ function palindrome(str) {
 // for testing purposes, will call the function a number of times
 console.log(palindrome("A man, a plan, a canal. Panama"))
 
+// The alternative solution to this problem is to use a recursive call back function, it needs to be a callback to preserve some variable information as it recurses.
 
+function palindrom2(str) {
+    // convert input into an array and remove non alpha-numeric characters
+    let myFilter = /[a-z0-9]/gmi
+    let myString = str.match(myFilter)
+
+    
+}
 
 
 /* code planning
