@@ -14,6 +14,7 @@ Function   | fnMyFunc  | 'fn' indicates function                                
 ____________________________________________________________________________________________________________________________________|
 */
 
+// This is the original solution
 function rot13(str) {
     // set up 
     let arrCont1 = str.split("")
@@ -39,7 +40,7 @@ function rot13(str) {
     return results.join("") ;
   }
   
-console.log(rot13("SERR PBQR PNZC!"));
+// console.log(rot13("SERR PBQR PNZC!"));
 
 // CODE PLANNING 
 
@@ -154,32 +155,3 @@ array1.map(x => {
 })
 
 console.log(result.join("")) */
-
-
-// A proof of concept using functions? possibly recursion?
-
-function ROT13b (str) {
-    // set up
-    let arrCont1 = str.split("")
-    let arrCont2 = []
-
-    // recursive function
-    return charConvert(arrCont1).join("")
-}
-
-
-function charConvert (arr) {
-    let charCode = arr.join("").charCodeAt(0)
-    if (arr.shift() && 65 <= charCode >= 77) {
-        arrCont2 = arr.shift()
-        charConvert(arr)
-        return charCode + 13
-    }
-    else if (arr.shift() && 77 < charCode >= 90) {
-        arrCont2 = arr.shift()
-        charConvert(arr)
-        return charCode - 13
-    }
-}
-
-console.log(ROT13b("SERR PBQR PNZC!"))
